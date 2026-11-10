@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="topicos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz LED</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a iluminação LED automatizada da Casa Inteligente.">
+    <title>Iluminação LED | Casa Inteligente</title>
+    <link rel="stylesheet" href="topicos.css">
+</head>
+<body>
+<main>
+    <a class="voltar" href="Casa Inteligente.html">← Voltar à Casa Inteligente</a>
+
+    <header class="cabecalho-topico">
+        <span class="etiqueta">Iluminação automatizada</span>
+        <h1>Sistema de Iluminação LED</h1>
+        <p>Controle de luzes e organização da iluminação nos ambientes da Casa Inteligente.</p>
+    </header>
+
+    <section class="secao">
+        <h2>Conheça a iluminação do projeto</h2>
+        <p>
+            A iluminação é uma das aplicações mais comuns da automação
+            residencial. Com um sistema de controle, diferentes luzes
+            podem ser acionadas de acordo com os comandos do usuário
+            ou com condições definidas na programação.
+        </p>
+        <p>
+            Em nossa maquete, a proposta é organizar o controle das
+            luzes por ambiente, permitindo identificar cada ponto
+            de iluminação e demonstrar como o acionamento eletrônico
+            pode ser integrado à interface do site.
+        </p>
+        <div class="cartao">
+            <h3>Foto das luzes da maquete</h3>
+            <img src="ImageLED1.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+<img src="led.2.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+<img src="led.3.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+
+    </section>
+
+    <section class="secao">
+        <h2>Controle por ambiente</h2>
+        <p>
+            Separar a iluminação por cômodo facilita a organização
+            do sistema e a identificação de cada dispositivo.
+            No painel principal, os ambientes poderão ser apresentados
+            individualmente, de acordo com as ligações realmente
+            realizadas na maquete.
+        </p>
+        <div class="grade">
+            <article class="cartao">
+                <h3>Sala</h3>
+                <p>Controle da iluminação do ambiente social.</p>
+<img src="LEDSALA.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+                <p>[ADICIONAR FOTO DA LUZ DA SALA]</p>
+            </article>
+
+
+            <article class="cartao">
+                <h3>Cozinha</h3>
+                <p>Acionamento independente da luz da cozinha.</p>
+<img src="ledcozinha.jpg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+                <p>[ADICIONAR FOTO DA LUZ DA COZINHA]</p>
+            </article>
+
+            <article class="cartao">
+                <h3>Quarto</h3>
+                <p>Organização e controle do ponto de iluminação.</p>
+                <img src="ledquarto.jpg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+                <p>[ADICIONAR FOTO DA LUZ DO QUARTO]</p>
+            </article>
+    
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como funciona o acionamento?</h2>
+        <div class="grade">
+            <article class="cartao">
+                <h3>01. Comando</h3>
+                <p>
+                    O usuário solicita o acionamento por meio de
+                    um botão, uma interface ou outro mecanismo
+                    previsto no projeto.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>02. Processamento</h3>
+                <p>
+                    A placa controladora recebe o comando e executa
+                    a lógica programada.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>03. Acionamento eletrônico</h3>
+                <p>
+                    A saída de controle aciona o circuito adequado
+                    para ligar ou desligar a iluminação.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>04. Resultado</h3>
+                <p>
+                    A luz muda de estado conforme o circuito
+                    e o comando executado.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Vídeo demonstrativo</h2>
+        <div class="cartao">
+            <h3>Veja os LEDs funcionando</h3>
+           <ul>
+    <li>
+        <a href="https://www.youtube.com/shorts/MSfQPlci7EI" target="_blank">
+            Assistir ao vídeo
+        </a>
+    </li>
+</ul>
+            <p>
+                A demonstração poderá mostrar o acionamento das luzes,
+                a identificação de cada cômodo e a resposta da maquete.
+            </p>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como foi desenvolvido?</h2>
+<p> A iluminação da casa foi desenvolvida com os senguintes materiais,
+    ESP32, protoboard, fios coloridos, led, resistor e cabo USB.Para essa 
+iluminação funcionar, foi necessário criar um codigo para que pudesse 
+funcionar o protótipo, e depois por no aplicativo arduino IDE. O aplicativo
+gerava IP, e jogando o IP no navegador, era possivel rodar o sistema das LEDs
+ou seja, poderias ligar e desligar qualquer led na casa, ou até deixando todas 
+ligadas   </p>
+    </section>
+
+    <section class="secao">
+        <h2>Código da iluminação</h2>
+        <p>
+            Esta seção será utilizada para documentar o programa
+            que controla as luzes, explicando as saídas utilizadas,
+            os comandos e a lógica de acionamento.
+        </p>
+        <div class="codigo">
+            <p>
+            <pre><code>#include <WiFi.h>
+#include <WebServer.h>
+const char* ssid = "LIVE TIM_9840_MH";
+const char* password = "8765432a";
+ 
+WebServer server(80);
+// Pinos dos 3 LEDs
+const int led1 = 2;  // D2
+const int led2 = 19;  // D4
+const int led3 = 22;  // D5
+void setup() {
+ Serial.begin(115200);
+ pinMode(led1, OUTPUT);
+ pinMode(led2, OUTPUT);
+ pinMode(led3, OUTPUT);
+ digitalWrite(led1, LOW);
+ digitalWrite(led2, LOW);
+ digitalWrite(led3, LOW);
+ Serial.println("Configurando WiFi no modo estação");
+ WiFi.mode(WIFI_STA);
+ WiFi.begin(ssid, password);
+ while (WiFi.status() != WL_CONNECTED) {
+   delay(500);
+   Serial.print(".");
+ }
+ Serial.println("\nWiFi conectado!!!");
+ Serial.print("Endereço IP: ");
+ Serial.println(WiFi.localIP());
+ server.on("/", HTTP_GET, handleRoot);
+ server.onNotFound(handleNotFound);
+ server.begin();
+ Serial.println("Servidor HTTP iniciado");
+}
+void loop() {
+ server.handleClient();
+}
+void handleRoot() {
+ String html =
+ <p>
+   "<h1>Controle de LEDs</h1>"
+   "<p><a href=\"/acender1\">Acender LED 1</a></p>"
+   "<p><a href=\"/apagar1\">Apagar LED 1</a></p>"
+   "<p><a href=\"/acender2\">Acender LED 2</a></p>"
+   "<p><a href=\"/apagar2\">Apagar LED 2</a></p>"
+   "<p><a href=\"/acender3\">Acender LED 3</a></p>"
+   "<p><a href=\"/apagar3\">Apagar LED 3</a></p>";
+ </p>
+   server.send(200, "text/html", html);
+}
+void handleNotFound() {
+ String comando = server.uri();
+ if (comando == "/acender1") {
+   digitalWrite(led1, HIGH);
+   server.send(200, "text/plain", "LED 1 aceso");
+ } else if (comando == "/apagar1") {
+   digitalWrite(led1, LOW);
+   server.send(200, "text/plain", "LED 1 apagado");
+ } else if (comando == "/acender2") {
+   digitalWrite(led2, HIGH);
+   server.send(200, "text/plain", "LED 2 aceso");
+ } else if (comando == "/apagar2") {
+   digitalWrite(led2, LOW);
+   server.send(200, "text/plain", "LED 2 apagado");
+ } else if (comando == "/acender3") {
+   digitalWrite(led3, HIGH);
+   server.send(200, "text/plain", "LED 3 aceso");
+ } else if (comando == "/apagar3") {
+   digitalWrite(led3, LOW);
+   server.send(200, "text/plain", "LED 3 apagado");
+ } else {
+   server.send(404, "text/plain", "Comando não reconhecido");
+ }
+}
+ </p>
+
+ </code></pre>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Automação e eficiência energética</h2>
+        <p>
+            A automação da iluminação pode ajudar a evitar que luzes
+            permaneçam acesas sem necessidade, desde que o sistema
+            seja configurado para esse objetivo. O consumo também
+            depende da potência das lâmpadas, do tempo de utilização
+            e das condições de funcionamento.
+        </p>
+
+    </section>
+
+    <footer>
+        <p>Casa Inteligente | Iluminação e automação</p>
+        <a class="voltar" href="index.html">Voltar ao início</a>
+    </footer>
+</main>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="topicos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escada rolante</title>
+</head>
+<body>
+   
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a escada rolante automatizada da Casa Inteligente.">
+    <title>Escada Rolante | Casa Inteligente</title>
+    <link rel="stylesheet" href="topicos.css">
+</head>
+<body>
+<main>
+    <a class="voltar" href="Casa Inteligente.html">← Voltar à Casa Inteligente</a>
+
+    <header class="cabecalho-topico">
+        <span class="etiqueta">Engenharia e automação</span>
+        <h1>Escada Rolante Automatizada</h1>
+        <p>Conheça a proposta de movimentação automatizada desenvolvida para a nossa maquete.</p>
+    </header>
+
+    <section class="secao">
+        <h2>O que é uma escada rolante automatizada?</h2>
+        <p>
+            Uma escada rolante é um sistema mecânico que transporta
+            pessoas entre diferentes níveis por meio de degraus
+            em movimento contínuo. Em uma instalação real, seu
+            funcionamento envolve mecanismos, acionamento elétrico
+            e diversos recursos de segurança.
+        </p>
+        <p>
+            Na nossa maquete, a escada representa uma aplicação
+            de automação e movimentação mecânica em um ambiente
+            residencial. A implementação específica depende do
+            mecanismo e dos componentes escolhidos pela equipe.
+        </p>
+        <div class="cartao">
+            <h3>Imagem da escada da maquete</h3>
+<img src="escada.rolante1.png" style="width: 200px; border: 10px solid rgb(0, 0, 0);">
+<img src="escadarolante2.png" style="width: 200px; border: 10px solid rgb(0, 0, 0);">
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como funciona o mecanismo?</h2>
+        <div class="grade">
+            <article class="cartao">
+                <h3>01. Acionamento</h3>
+                <p>
+                    Um comando ou uma condição programada pode
+                    iniciar o funcionamento do mecanismo.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>02. Motor</h3>
+                <p>
+                    O motor fornece o movimento necessário ao sistema,
+                    conforme o tipo de mecanismo utilizado.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>03. Transmissão do movimento</h3>
+                <p>
+                    O mecanismo transmite o movimento aos elementos
+                    móveis da escada.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>04. Controle</h3>
+                <p>
+                    A programação define como o sistema responde
+                    aos comandos e às condições previstas no projeto.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Vídeo demonstrativo</h2>
+        <div class="cartao">
+            <h3>Veja a escada funcionando</h3>
+            <ul>
+    <li>
+        <a href="https://www.youtube.com/watch?v=2etGS7Lfau0" target="_blank">
+            Assistir ao vídeo
+        </a>
+            <p>
+                A demonstração poderá apresentar o acionamento,
+                o movimento dos degraus e a integração com a maquete.
+            </p>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como foi desenvolvido?</h2>
+
+   <p>O projeto consistiu em construir o sistema de acionamento de
+   uma escada rolante, no qual um botão liga e desliga o motor e
+  dois LEDs indicam o estado do sistema. Onde ESP32 lê o botão e
+   controla o relé, que liga ou desliga o motor, já que o microcontrolador 
+   não fornece corrente suficiente para alimentá-lo diretamente.
+    O motor foi ligado aos terminais COM e NO do relé, de 
+  modo que ele só gira quando o relé é acionado. Um LED indica que o
+   motor está em funcionamento e outro indica que a fonte de energia
+    está ligada e o sistema está operando. Cada LED recebeu um resistor
+     220ohm para limitar a corrente e evitar sua queima.
+Na programação, o botão foi configurado com resistor de pull-up interno
+ e com debounce, para evitar leituras falsas causadas pela vibração dos
+  contatos. A cada clique, o sistema alterna entre motor ligado e
+   desligado, acionando o relé.
+Durante os testes, surgiu um problema que ao conectar a fonte, o motor
+ ligava e não desligava, e o botão não tinha efeito. Foram testadas
+  diferentes ligações e verificou-se que, com o módulo relé alimentado
+   por 3,3V, o botão funcionava, mas com 5V o LED do relé ficava sempre
+    aceso. A causa foi a diferença entre a tensão do sinal do ESP32
+     (3,3V) e a tensão de alimentação do módulo (5V), o nível alto de
+      3,3V não era suficiente para o módulo entender o comando de desligar.
+A solução foi alterar o código para que, no estado desligado, o pino do
+ relé seja configurado como entrada, deixando o próprio módulo desligar
+  o relé por seu pull-up interno. Para ligar, o pino passa a ser saída 
+  em nível baixo, que é o nível que aciona esse tipo de módulo. Com essa
+   modificação, o botão passou a controlar corretamente o motor. </p>
+    </section>
+
+    <section class="secao">
+        <h2>Código do sistema</h2>
+        <p>
+            O código será inserido após a equipe disponibilizar
+            a implementação utilizada para controlar a escada.
+            A explicação acompanhará as funções realmente presentes
+            no programa.
+        </p>
+        <div class="codigo">
+            <pre><code>
+const int BOTAO = 5;
+const int RELE = 18;
+const int LED_MOTOR = 2;
+const int LED_ENERGIA = 13;
+bool motorLigado = false;
+int leituraAnterior = HIGH;
+int estadoBotao = HIGH;
+unsigned long tempoDebounce = 0;
+const unsigned long intervaloDebounce = 50;
+void ligarRele() {
+ pinMode(RELE, OUTPUT);
+ digitalWrite(RELE, LOW); 
+}
+void desligarRele() {
+ pinMode(RELE, INPUT); }
+void setup() {
+ Serial.begin(115200);
+ pinMode(BOTAO, INPUT_PULLUP);
+ pinMode(LED_MOTOR, OUTPUT);
+ pinMode(LED_ENERGIA, OUTPUT);
+ desligarRele(); // começa com o motor desligado
+ digitalWrite(LED_MOTOR, LOW);
+ digitalWrite(LED_ENERGIA, HIGH);
+}
+void loop() {
+ int leitura = digitalRead(BOTAO);
+ if (leitura != leituraAnterior) {
+ tempoDebounce = millis();
+ }
+ if (millis() - tempoDebounce > intervaloDebounce) {
+ if (leitura != estadoBotao) {
+ estadoBotao = leitura;
+ if (estadoBotao == LOW) {
+ motorLigado = !motorLigado;
+ if (motorLigado) {
+ ligarRele();
+ digitalWrite(LED_MOTOR, HIGH);
+ } else {
+ desligarRele();
+ digitalWrite(LED_MOTOR, LOW);
+ 
+ }
+ }
+ }
+ }
+ leituraAnterior = leitura;
+</code></pre>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Desenvolvimento e testes</h2>
+        <p>
+            Os testes ajudam a verificar se o mecanismo se movimenta
+            conforme o esperado e se os componentes estão corretamente
+            integrados. Nesta seção, serão apresentados os testes
+            realizados e as melhorias desenvolvidas pela equipe.
+        </p>
+       <img src="etapas.png" style="width: 200px; border: 10px solid rgb(0, 0, 0);">
+     <img src="etapas2.png" style="width: 200px; border: 10px solid rgb(0, 0, 0);">
+   <img src="etapas3.png" style="width: 200px; border: 10px solid rgb(0, 0, 0);">
+</section>
+
+    <footer>
+        <p>Casa Inteligente | Engenharia e automação</p>
+        <a class="voltar" href="index.html">Voltar ao início</a>
+    </footer>
+</main>
+</body>
+</html>
+ 
+</body>
+</html>

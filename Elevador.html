@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="topicos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevador</title>
+</head>
+<body>
+   
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça o elevador inteligente da maquete.">
+    <title>Elevador Inteligente | Casa Inteligente</title>
+    <link rel="stylesheet" href="topicos.css">
+</head>
+<body>
+<main>
+    <a class="voltar" href="Casa Inteligente.html">← Voltar à Casa Inteligente</a>
+
+    <header class="cabecalho-topico">
+        <span class="etiqueta">Automação e mobilidade</span>
+        <h1>Elevador Inteligente</h1>
+        <p>Uma demonstração de como a programação pode controlar a seleção de andares em uma maquete automatizada.</p>
+    </header>
+
+    <section class="secao">
+        <h2>Conheça o elevador</h2>
+        <p>
+            O elevador inteligente do projeto representa um sistema de
+            transporte entre diferentes níveis da casa. A proposta é
+            demonstrar como comandos enviados pelo usuário podem ser
+            utilizados para selecionar um andar e iniciar uma ação
+            programada.
+        </p>
+        <p>
+            O funcionamento físico depende dos componentes instalados,
+            do mecanismo de movimentação e da programação desenvolvida
+            pela equipe.
+        </p>
+        <div class="cartao">
+            <h3>Foto do elevador</h3>
+            <p> Infelizmente o Elevador não deu certo, por esse motivo não conseguimos por a foto da estrtura do elevador </p>
+            <img src="elevador.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+            <img src="elevadorprototipo.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+            <p>[foto do inicio do projeto do elevador]</p>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como funciona?</h2>
+        <div class="grade">
+            <article class="cartao">
+                <h3>01. Seleção do andar</h3>
+                <p>
+                    O usuário escolhe o nível desejado por meio de
+                    um botão ou de uma interface de controle.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>02. Processamento do comando</h3>
+                <p>
+                    A programação recebe a solicitação e verifica
+                    qual ação deve ser executada.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>03. Acionamento</h3>
+                <p>
+                    O circuito de controle envia o comando necessário
+                    ao mecanismo de movimentação, conforme o projeto.
+                </p>
+            </article>
+            <article class="cartao">
+                <h3>04. Chegada ao destino</h3>
+                <p>
+                    O sistema pode indicar a posição alcançada por
+                    meio de sensores, controles ou outra lógica
+                    implementada pela equipe.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Vídeo de funcionamento</h2>
+
+        <div class="cartao">
+            <h3>Veja o motor do elevador em movimento</h3>
+            <p>[ADICIONAR LINK DO VÍDEO motor  DO ELEVADOR]</p>
+            <p>
+                O vídeo mostra como é o porjeto de montagem do elevador que 
+                apesar de não ter dado certo o resultado final, os comandos e
+                e o interior do projeto estava dando certo.
+            </p>
+             <a href="https://www.youtube.com/watch?v=9jSOU4PszP8" target="_blank">
+            Assistir ao vídeo
+        </a>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como foi desenvolvido?</h2>
+       <P> O projeto representa um protótipo de elevador por um microcontrolador, no caso o ESP32. Para o deslocamento entre os andares foi utilizado o motor de passos(Step Motor) e seu driver, permitindo o deslocamento da cabine
+Sendo utilizado 3 botões para representar cada andar da casa (Térreo 1°Andaa e 2°Andar), quando um dos botões são pressionados, o Esp recebe o comando e movimenta o motor até que a cabine esteja na distância desejada
+Para encontrar a localização da cabine foi utilizado um sensor ultrassônico HC-SR04, localizado no topo do elevador responsável por medir a distância do topo até a cabine, permitindo o sistema saber em qual Andar está localizado a cabine, e assim comparar com a medidas do andar solicitado
+Na parte da programação, foi desenvolvida no Arduíno IDE usando linguagem C++, dando sentido aos cliques em cada botão, monitorar a cada tick o sensor ultrassonico e controlar o motor de passo</P>
+    </section>
+
+    <section class="secao">
+        <h2>Programação do elevador</h2>
+        <p>
+            A programação define como os comandos são recebidos
+            e quais ações devem acontecer. O código real será
+            apresentado nesta seção depois de ser fornecido
+            pela pessoa responsável pelo elevador.
+        </p>
+        <div class="codigo">
+            <pre><code>
+                <p>
+#include &lt;Stepper.h&gt;
+<br><br>
+// =====================
+// MOTOR DE PASSO
+// =====================
+const int passosPorRevolucao = 2048;
+Stepper elevador(passosPorRevolucao, 19, 5, 18, 15);
+<br><br>
+// =====================
+// SENSOR ULTRASSÔNICO
+// =====================
+const int trigPin = 14;
+const int echoPin = 34;
+<br><br>
+// =====================
+// BOTÕES
+// =====================
+const int btnTerreo = 25;
+const int btnAndar1 = 26;
+const int btnAndar2 = 27;
+<br><br>
+// =====================
+// ALTURAS DOS ANDARES
+// (ajuste depois)
+// =====================
+float terreo = 50.0;
+float andar1 = 35.0;
+float andar2 = 20.0;
+<br><br>
+// Destino atual
+float destino = terreo;
+<br><br>
+// =====================
+// SETUP
+// =====================
+void setup() {
+<br><br>
+  Serial.begin(115200);
+<br><br>
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+<br><br>
+  pinMode(btnTerreo, INPUT_PULLUP);
+  pinMode(btnAndar1, INPUT_PULLUP);
+  pinMode(btnAndar2, INPUT_PULLUP);
+<br><br>
+  elevador.setSpeed(8);
+<br><br>
+  Serial.println("================================");
+  Serial.println("ELEVADOR INTELIGENTE INICIADO");
+  Serial.println("================================");
+}
+<br><br>
+// =====================
+// LOOP
+// =====================
+void loop() {
+<br><br>
+  // Botão térreo
+  if (digitalRead(btnTerreo) == LOW) {
+    destino = terreo;
+    Serial.println("Chamado: TERREO");
+    delay(300);
+  }
+<br><br>
+  // Botão andar 1
+  if (digitalRead(btnAndar1) == LOW) {
+    destino = andar1;
+    Serial.println("Chamado: ANDAR 1");
+    delay(300);
+  }
+<br><br>
+  // Botão andar 2
+  if (digitalRead(btnAndar2) == LOW) {
+    destino = andar2;
+    Serial.println("Chamado: ANDAR 2");
+    delay(300);
+  }
+<br><br>
+  float atual = lerDistancia();
+<br><br>
+  Serial.print("Atual: ");
+  Serial.print(atual);
+  Serial.print(" cm | Destino: ");
+  Serial.print(destino);
+  Serial.println(" cm");
+<br><br>
+  float tolerancia = 3.0;
+<br><br>
+  // Muito abaixo do destino
+  if (atual &gt; destino + tolerancia) {
+<br><br>
+    // SOBE
+    elevador.step(20);
+<br><br>
+  }
+<br><br>
+  // Muito acima do destino
+  else if (atual &lt; destino - tolerancia) {
+<br><br>
+    // DESCE
+    elevador.step(-20);
+<br><br>
+  }
+<br><br>
+  // Chegou
+  else {
+<br><br>
+    pararMotor();
+<br><br>
+  }
+<br><br>
+  delay(50);
+}
+<br><br>
+// =====================
+// SENSOR
+// =====================
+float lerDistancia() {
+<br><br>
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+<br><br>
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+<br><br>
+  digitalWrite(trigPin, LOW);
+<br><br>
+  long duracao = pulseIn(echoPin, HIGH, 30000);
+<br><br>
+  if (duracao == 0) {
+    return 999;
+  }
+<br><br>
+  return duracao * 0.034 / 2.0;
+}
+<br><br>
+// =====================
+// PARAR MOTOR
+// =====================
+void pararMotor() {
+<br><br>
+  digitalWrite(19, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(18, LOW);
+  digitalWrite(15, LOW);
+<br><br>
+}
+
+</p>
+
+            </code></pre>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Desafios do desenvolvimento</h2>
+        <p>
+            Durante o desenvolvimento, podem surgir desafios
+            relacionados ao movimento, à alimentação elétrica,
+            ao alinhamento do mecanismo e à interpretação dos
+            comandos. Nesta parte, registraremos as dificuldades
+            realmente encontradas e as soluções aplicadas pela equipe.
+        </p>
+        <p>Durante o desenvolvimento do protótipo surgiram alguns desafios, mas todos foram resolvidos com ajustes no projeto. O principal foi a calibração do sensor ultrassônico, que apresentava pequenas oscilações nas leituras e podia confundir a posição da cabine, então foi criada uma margem de tolerância na programação para evitar movimentações desnecessárias. Também houve dificuldade no controle do motor de passo, que no início estava muito lento, por isso foram feitos ajustes na programação para equilibrar velocidade e estabilidade, além da adição de uma polia para aumentar o percurso da corda no carretel. Por fim, surgiram problemas na alimentação elétrica e nas conexões do circuito, que foram resolvidos após revisar as ligações e testar cada componente individualmente, garantindo o funcionamento correto do ESP32, do driver do motor e do sensor. Mesmo sendo um protótipo em escala reduzida, o projeto conseguiu reproduzir o funcionamento básico de um elevador real, demonstrando conceitos de automação, sensores e controle embarcado.
+
+</p>
+    </section>
+
+    <footer>
+        <p>Casa Inteligente | Automação e mobilidade</p>
+        <a class="voltar" href="index.html">Voltar ao início</a>
+    </footer>
+</main>
+</body>
+</html>
+ 
+</body>
+</html>

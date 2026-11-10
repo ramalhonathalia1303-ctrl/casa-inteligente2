@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="topicos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câmera de Segurança</title>
+</head>
+<body>
+   
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a câmera de segurança e o reconhecimento facial da Casa Inteligente.">
+    <title>Câmera de Segurança | Casa Inteligente</title>
+    <link rel="stylesheet" href="topicos.css">
+</head>
+<body>
+<main>
+    <a class="voltar" href="Casa Inteligente.html">← Voltar à Casa Inteligente</a>
+
+    <header class="cabecalho-topico">
+        <span class="etiqueta">Segurança e visão computacional</span>
+        <h1>Câmera de Segurança Inteligente</h1>
+        <p>
+            Monitoramento, reconhecimento facial e interação
+            automatizada na entrada da Casa Inteligente.
+        </p>
+    </header>
+
+    <section class="secao">
+        <h2>Conheça o sistema de segurança</h2>
+        <p>
+            A câmera é um dos componentes utilizados para ampliar
+            as possibilidades de monitoramento de uma casa inteligente.
+            Ela pode captar imagens da entrada e, quando conectada
+            a um sistema compatível, permitir que essas imagens
+            sejam analisadas por um programa.
+        </p>
+        <p>
+            Em nosso projeto, a proposta é explorar a interação entre
+            a câmera, o processamento de imagens e os demais dispositivos
+            da maquete. Dependendo da implementação, a detecção de
+            uma pessoa poderá iniciar uma mensagem de boas-vindas
+            reproduzida pelo alto-falante.
+        </p>
+        <div class="cartao">
+            <h3>Imagem da câmera </h3>
+          <ul> 
+<li> 
+ <img src="camera2.jpeg" style="width: 200px; border: 10px solid rgb(0, 0, 0);" >
+</li>
+          </ul>
+ 
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Veja o sistema funcionando</h2>
+        <div class="grade">
+            <article class="cartao">
+                <h3>Vídeo demonstrativo</h3>
+                <p>
+                    Assista à demonstração da câmera e observe
+                    como ela interage com o sistema.
+                </p>
+                <ul>
+    <li>
+        <a href="https://www.youtube.com/shorts/xjzsDGlfS3E" target="_blank">
+            Assistir ao vídeo
+        </a>
+    </li>
+</ul>
+    <ul>
+    <li>
+        <a href="https://www.youtube.com/watch?v=2KExP_R6_aU" target="_blank">
+            Assistir ao vídeo
+        </a>
+    </li>
+</ul>   
+
+</article>
+
+            <article class="cartao">
+                <h3>O que observar?</h3>
+                <ul>
+                    <li>Posicionamento da câmera.</li>
+                    <li>Captura das imagens.</li>
+                    <li>Detecção ou reconhecimento implementado.</li>
+                    <li>Resposta dos dispositivos conectados.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como funciona o reconhecimento facial?</h2>
+        <p>
+            O reconhecimento facial utiliza técnicas de processamento
+            de imagens para comparar características de um rosto com
+            referências cadastradas. Ele não é a mesma coisa que
+            detectar um rosto: a detecção identifica a presença de
+            uma face, enquanto o reconhecimento busca determinar
+            a quem ela corresponde.
+        </p>
+
+        <div class="grade">
+            <article class="cartao">
+                <h3>01. Captura da imagem</h3>
+                <p>
+                    A câmera registra imagens do ambiente para que
+                    possam ser processadas pelo sistema.
+                </p>
+            </article>
+
+            <article class="cartao">
+                <h3>02. Detecção facial</h3>
+                <p>
+                    O software identifica a região da imagem
+                    onde existe um rosto.
+                </p>
+            </article>
+
+            <article class="cartao">
+                <h3>03. Comparação</h3>
+                <p>
+                    Quando há reconhecimento facial implementado,
+                    o sistema compara características com referências
+                    previamente cadastradas.
+                </p>
+            </article>
+
+            <article class="cartao">
+                <h3>04. Ação programada</h3>
+                <p>
+                    Conforme as regras do projeto, o resultado
+                    pode gerar uma mensagem ou outra resposta
+                    previamente configurada.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Como foi desenvolvido?</h2>
+        <p>
+            Nesta parte vamos documentar os componentes, a placa
+            utilizada, a tecnologia de processamento de imagens
+            e a forma de comunicação com os demais dispositivos.
+        </p>
+<p>Para desenvolver o projeto, começamos pesquisando e testando diferentes formas de fazer os componentes funcionarem.
+     Inicialmente, tentamos utilizar o Arduino, mas, como precisávamos de conexão Wi-Fi, optamos pelo ESP32 junto à ESP32-CAM,
+      que atendiam melhor às nossas necessidades. Durante o processo, utilizamos inteligência artificial e contamos com a ajuda
+       de colegas para desenvolver e corrigir os códigos, além de entender as conexões entre as placas. Também reorganizamos os
+        fios e componentes para deixar a montagem mais organizada. A programação foi realizada no Arduino IDE, onde configuramos
+         a conexão Wi-Fi e utilizamos o Monitor Serial para verificar o funcionamento. Depois, acessamos o endereço IP da câmera
+          pelo navegador e conseguimos visualizar as imagens em tempo real. Por fim, integramos a câmera ao nosso site, permitindo
+           selecionar componentes eletrônicos e registrar suas imagens, que são armazenadas em pastas organizadas. Essas imagens 
+           serão utilizadas futuramente para treinar uma inteligência artificial pelo Edge Impulse. Mesmo com algumas dificuldades,
+            conseguimos encontrar soluções por meio de testes, pesquisas e colaboração, fazendo o projeto avançar. </p>
+
+        <ul>
+            <li>
+                Câmera:<br>
+            <img src="camera4.jpeg" width="300" style="display:block; height:auto; max-width:none;">
+            </li>
+
+           
+    </section>
+
+    <section class="secao">
+        <h2>Código do reconhecimento facial</h2>
+        <p>
+            Aqui será inserido o código real utilizado no projeto.
+            Depois, vamos explicar cada parte para que os visitantes
+            entendam como o sistema foi programado.
+        </p>
+        <div class="codigo">
+            <pre><code>#include "esp_camera.h"
+#include <WiFi.h>
+ 
+const char* ssid = "LIVE TIM_9840_MH";
+const char* password = "8765432a";
+ 
+// AI Thinker ESP32-CAM
+#define PWDN_GPIO_NUM     32
+#define RESET_GPIO_NUM    -1
+#define XCLK_GPIO_NUM      0
+#define SIOD_GPIO_NUM     26
+#define SIOC_GPIO_NUM     27
+ 
+#define Y9_GPIO_NUM       35
+#define Y8_GPIO_NUM       34
+#define Y7_GPIO_NUM       39
+#define Y6_GPIO_NUM       36
+#define Y5_GPIO_NUM       21
+#define Y4_GPIO_NUM       19
+#define Y3_GPIO_NUM       18
+#define Y2_GPIO_NUM        5
+#define VSYNC_GPIO_NUM    25
+#define HREF_GPIO_NUM     23
+#define PCLK_GPIO_NUM     22
+ 
+#include "esp_http_server.h"
+ 
+static esp_err_t stream_handler(httpd_req_t *req){
+    camera_fb_t * fb = NULL;
+    esp_err_t res = ESP_OK;
+ 
+    httpd_resp_set_type(req, "multipart/x-mixed-replace;boundary=frame");
+ 
+    while(true){
+        fb = esp_camera_fb_get();
+        if(!fb) break;
+ 
+        httpd_resp_send_chunk(req, "--frame\r\n", 9);
+        httpd_resp_send_chunk(req, "Content-Type: image/jpeg\r\n\r\n", 28);
+        httpd_resp_send_chunk(req, (const char*)fb->buf, fb->len);
+        httpd_resp_send_chunk(req, "\r\n", 2);
+ 
+        esp_camera_fb_return(fb);
+    }
+    return res;
+}
+ 
+void startCameraServer(){
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    httpd_handle_t server = NULL;
+ 
+    httpd_uri_t stream_uri = {
+        .uri = "/stream",
+        .method = HTTP_GET,
+        .handler = stream_handler
+    };
+ 
+    httpd_start(&server, &config);
+    httpd_register_uri_handler(server, &stream_uri);
+}
+ 
+void setup(){
+    Serial.begin(115200);
+ 
+    camera_config_t config;
+    config.ledc_channel = LEDC_CHANNEL_0;
+    config.ledc_timer = LEDC_TIMER_0;
+    config.pin_d0 = Y2_GPIO_NUM;
+    config.pin_d1 = Y3_GPIO_NUM;
+    config.pin_d2 = Y4_GPIO_NUM;
+    config.pin_d3 = Y5_GPIO_NUM;
+    config.pin_d4 = Y6_GPIO_NUM;
+    config.pin_d5 = Y7_GPIO_NUM;
+    config.pin_d6 = Y8_GPIO_NUM;
+    config.pin_d7 = Y9_GPIO_NUM;
+    config.pin_xclk = XCLK_GPIO_NUM;
+    config.pin_pclk = PCLK_GPIO_NUM;
+    config.pin_vsync = VSYNC_GPIO_NUM;
+    config.pin_href = HREF_GPIO_NUM;
+    config.pin_sscb_sda = SIOD_GPIO_NUM;
+    config.pin_sscb_scl = SIOC_GPIO_NUM;
+    config.pin_pwdn = PWDN_GPIO_NUM;
+    config.pin_reset = RESET_GPIO_NUM;
+    config.xclk_freq_hz = 20000000;
+    config.pixel_format = PIXFORMAT_JPEG;
+ 
+    config.frame_size = FRAMESIZE_QVGA;
+    config.jpeg_quality = 12;
+    config.fb_count = 1;
+ 
+    esp_camera_init(&config);
+ 
+    WiFi.begin(ssid,password);
+ 
+    while(WiFi.status()!=WL_CONNECTED){
+        delay(500);
+        Serial.print(".");
+    }
+ 
+    Serial.println();
+    Serial.println(WiFi.localIP());
+ 
+    startCameraServer();
+}
+ 
+void loop(){}
+ 
+ </code></pre>
+        </div>
+    </section>
+
+    <section class="secao">
+        <h2>Privacidade e segurança</h2>
+        <p>
+            Imagens faciais exigem cuidados com privacidade e acesso.
+            Quando utilizadas para identificar pessoas, informações
+            biométricas podem ser consideradas dados pessoais sensíveis
+            pela legislação brasileira. Por isso, é importante
+            explicar como as imagens são utilizadas e evitar
+            armazenar dados desnecessários.
+        </p>
+    </section>
+
+    <footer>
+        <p>Casa Inteligente | Segurança e tecnologia</p>
+        <a class="voltar" href="index.html">Voltar ao início</a>
+    </footer>
+</main>
+</body>
+</html>
+ 
+</body>
+</html>
